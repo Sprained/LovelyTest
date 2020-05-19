@@ -1,5 +1,6 @@
 package core;
 
+
 import java.util.Map;
 
 import org.json.simple.JSONObject;
@@ -10,7 +11,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class BaseTest {
-	private RequestSpecification request;
+	private static RequestSpecification request;
 	private JSONObject json = new JSONObject();
 	private Response response;
 	
