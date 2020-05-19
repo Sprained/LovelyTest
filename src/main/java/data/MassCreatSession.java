@@ -1,26 +1,18 @@
-package test;
+package data;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.junit.After;
-import org.junit.Assert;
 import org.junit.Test;
 
 import core.BaseTest;
 
-public class Users extends BaseTest{
+public class MassCreatSession extends BaseTest {
 	
 	Map<String, String> body = new HashMap<String, String>();
 	
-	@After
-	public void end() {
-		body.clear();
-	}
-	
 	@Test
-	public void create() {
-		
+	public void massCreateSessionUser() {
 		//Body json
 		body.put("email", "testeemail@gmail.com");
 		body.put("password", "teste123");
@@ -30,10 +22,6 @@ public class Users extends BaseTest{
 		body.put("ddd", "81");
 		body.put("phone", "999999999");
 		setBody(body, "users");
-		
-		//validando retorno
-		Assert.assertEquals(200, getStatusCode());
-		Assert.assertEquals("Cadastro realizado com sucesso!", getBody());
 	}
 
 }

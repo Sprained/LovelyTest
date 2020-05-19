@@ -34,7 +34,7 @@ public class UsersExceptions extends BaseTest{
 	public void existingEmail() {
 		
 		//Body json
-		body.put("email", "testeemail2@gmail.com");
+		body.put("email", "testeemail@gmail.com");
 		body.put("password", "teste123");
 		body.put("name", "Teste2");
 		body.put("address", "Rua Teste2");
@@ -52,7 +52,7 @@ public class UsersExceptions extends BaseTest{
 	public void weakPassword() {
 		
 		//Body json
-		body.put("email", "testeemail2@gmail.com");
+		body.put("email", "testeemail@gmail.com");
 		body.put("password", "tes");
 		body.put("name", "Teste2");
 		body.put("address", "Rua Teste2");
