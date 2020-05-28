@@ -1,4 +1,4 @@
-package test;
+package test.cats;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,25 +9,25 @@ import org.junit.Test;
 
 import core.BaseTest;
 
-public class Session extends BaseTest{
-	
+public class CreateCat extends BaseTest {
 	Map<String, String> body = new HashMap<String, String>();
 	
 	@After
 	public void end() {
 		body.clear();
 	}
-
+	
 	@Test
-	public void creatSession() {
-		
+	public void catRegister() {
 		//Body json
-		body.put("email", "testeemail@gmail.com");
-		body.put("password", "teste123");
-		setBody(body, "session");
+		body.put("name", "olokinho");
+		body.put("race", "loko");
+		body.put("age", "77");
+		body.put("gender", "male");
+		setBody(body, "cats");
 		
 		//validando retorno
 		Assert.assertEquals(200, getStatusCode());
+		Assert.assertEquals("Cadastro realizado com sucesso", getBody());
 	}
-	
 }

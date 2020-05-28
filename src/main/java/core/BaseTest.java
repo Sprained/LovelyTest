@@ -1,10 +1,17 @@
 package core;
 
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
+
+import javax.imageio.IIOImage;
+import javax.imageio.ImageIO;
 
 import org.json.simple.JSONObject;
 import org.junit.Before;
+import org.openqa.selenium.json.Json;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -22,12 +29,35 @@ public class BaseTest {
 		request.header("Content-Type", "application/json");
 	}
 	
+	//solicitação das rotas get
+	public void get(String route) {
+		response = request.get(route);
+	}
+	
+	//solicitação rota post
+	public void post(String route) {
+		response = request.post(route);
+	}
+	
+	//solicitação das rotas de delete
+	public void delete(String route) {
+		response = request.delete(route);
+	}
+	
 	//setar valores do body json para mandar pra rota
 	public void setBody(Map<String, String> map, String route) {
 		json.putAll(map);
 		request.body(json.toJSONString());
-		response = request.post(route);
+		post(route);
 	}
+	
+	//up de imagem
+	/*public void setImg(String route, String path) {
+		BufferedImage imagem;
+		imagem = ImageIO.read(new File(path));
+		request.multiPart(path);
+		post(route + "/-M8Qa6Hq5Gjd9BrF_7bl");
+	}*/
 	
 	//recuperar body json de retorno
 	public String getBody() {

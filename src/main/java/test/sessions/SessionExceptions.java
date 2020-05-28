@@ -1,4 +1,4 @@
-package test;
+package test.sessions;
 
 import java.util.HashMap;
 import java.util.Map;
